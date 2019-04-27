@@ -24,16 +24,16 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        viewModel.restoreState(savedInstanceState)
+       // viewModel.restoreState(savedInstanceState)
         viewModel.changeNotifier.observe(this, changeObserver)
         lifecycle.addObserver(viewModel)
-        getBtn.setOnClickListener { viewModel.increment() }
+        getBtn.setOnClickListener { viewModel.increment(55) }
     }
 
-    override fun onSaveInstanceState(outState: Bundle) {
+    /*override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         viewModel.saveState(outState)
-    }
+    }*/
 
     private fun incrementCount(value: Int) {
         textView.text = (value).toString()
